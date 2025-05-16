@@ -3,13 +3,13 @@
 IMediciones::~IMediciones() {}
 
 void MedicionBase::serializar(std::ofstream& t_out) const {
-    t_out.write(reinterpret_cast<char*>(m_tiempoMedicion.get()), sizeof(float));
+    t_out.write(reinterpret_cast<const char*>(m_tiempoMedicion.get()), sizeof(float));
 }
 
 void MedicionBase::deSerializar(std::ifstream& t_in) {
-    float* x = new float;
-    t_in.read(reinterpret_cast<char*>(x), sizeof(float));
-    m_tiempoMedicion = std::make_unique<float>(x);
+    float tiempoMedicion{};
+    t_in.read(reinterpret_cast<char*>(&tiempoMedicion), sizeof(float));
+    m_tiempoMedicion = std::make_unique<float>(tiempoMedicion);
 }
 
 float MedicionBase::getTiempo() const {

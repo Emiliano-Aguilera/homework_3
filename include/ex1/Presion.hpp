@@ -10,5 +10,6 @@ public:
     void imprimir() const override;
 
     Presion(float t_presionEstatica, float t_presionDinamica, float t_tiempo);
+    Presion(const Presion& t_presion); // Copy constructor
     ~Presion() = default;
 };

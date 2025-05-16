@@ -10,5 +10,6 @@ public:
     void imprimir() const override;
     
     Posicion(float t_latitud, float t_longitud, float t_altitud, float t_tiempo);
+    Posicion(const Posicion& t_posicion);
     ~Posicion() = default;
 };

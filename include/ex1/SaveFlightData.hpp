@@ -7,8 +7,8 @@
 
 class SaveFlightData {
 public:
-    Posicion* m_posicion;
-    Presion* m_presion;
+    Posicion m_posicion;
+    Presion m_presion;
 public:
     void imprimir() const;    
     void serializar(std::ofstream& t_out) const;
