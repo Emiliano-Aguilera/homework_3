@@ -33,9 +33,9 @@ int main() {
     }
 
     // Imprimir valores de ambos, para ver que se serializa correctamente.
-    std::cout << "Original:\n";
+    std::cout << "Original: " << std::endl;
     original.imprimir();
-    std::cout << "\nLoaded:\n";
+    std::cout << "Cargado: " << std::endl;
     loaded.imprimir();
 
     return 0;

@@ -13,7 +13,7 @@ Posicion::Posicion(float t_latitud, float t_longitud, float t_altitud, float t_t
     m_altitud = t_altitud;
     m_tiempoMedicion = std::make_unique<float>(t_tiempo);
 }
-
+// TODO check que tener un copy constructor es una buena forma de hacerlo.
 Posicion::Posicion(const Posicion& t_posicion) {
     m_latitud = t_posicion.m_latitud;
     m_longitud = t_posicion.m_longitud;

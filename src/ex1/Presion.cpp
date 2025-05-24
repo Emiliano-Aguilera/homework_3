@@ -12,6 +12,7 @@ void Presion::imprimir() const{
     std::cout << "Tiempo de Medicion: " << getTiempo() << std::endl;
 }
 
+// TODO check que tener un copy constructor es una buena forma de hacerlo.
 Presion::Presion(const Presion& t_presion) {
     m_presionEstatica = t_presion.m_presionEstatica;
     m_presionDinamica = t_presion.m_presionDinamica;
