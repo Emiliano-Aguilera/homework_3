@@ -8,7 +8,7 @@ int main() {
 
     SaveFlightData original(posicion, presion);
 
-    std::ofstream out("flightdata.bin", std::ios::binary);
+    std::ofstream out("../../flightdata.bin", std::ios::binary);
     if (out) {
         original.serializar(out);
         out.close();
@@ -23,7 +23,7 @@ int main() {
     SaveFlightData loaded(pos2, pres2);
 
     // Deserializar
-    std::ifstream in("flightdata.bin", std::ios::binary);
+    std::ifstream in("../../flightdata.bin", std::ios::binary);
     if (in) {
         loaded.deSerializar(in);
         in.close();
