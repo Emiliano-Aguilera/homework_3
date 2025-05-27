@@ -13,7 +13,7 @@ private:
     T m_figura;
 public:
     float calcularArea();
-    ProcesadorFigura(T t_figura) {
+    explicit ProcesadorFigura(T t_figura) {
         m_figura = t_figura;
     }
     ~ProcesadorFigura() = default;
