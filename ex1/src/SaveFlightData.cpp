@@ -34,4 +34,4 @@ void SaveFlightData::deSerializar(std::ifstream& t_in) {
 }
 
 SaveFlightData::SaveFlightData(const Posicion& t_posicion, const Presion&  t_presion)
-    : m_posicion(t_posicion) , m_presion (t_presion) {}
+    : m_posicion(t_posicion) , m_presion (t_presion) {} // TODO check que esto sea correcto
