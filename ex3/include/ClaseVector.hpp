@@ -1,60 +1,75 @@
 #pragma once
 
+#include "BaseVector.hpp"
+
 #include <vector>
-#include <type_traits>
+#include <stdexcept>
 
 template <typename T>
-class ClaseVector {
+/*
+* ClaseVector Hereda de BaseVector para lograr Polimorfismo usando templates de ClaseVector.
+* La clase contiene un vector de tipo T, siendo T el tipo de dato con el que se construye la clase.
+* No se permite eliminar valores del vector porque se asume que esta clase deberia ser usada para deserializar un JSON, 
+* no para interactuar con el usuario/programador de otra forma. Para uso mas general, usar std::vector.
+*/
+class ClaseVector : public BaseVector{
 private:
     std::vector<T> m_vector;
 public:
-    void agregarValor(T t_valor) {
+    // Hace un push_back del valor. Igual que un std::vector
+    void agregarValor(const T& t_valor) {
         m_vector.push_back(t_valor);
     }
 
-    void mostrarVector() {
+    void mostrarVector() const override {
+        // Uso sep para poner una "," al final de todos los elementos excepto el ultimo. Evita checkeos y hace mas legible la iteracion.
+
+        // Caso vector de double.
         if constexpr (std::is_same_v<T, double>) {
-            std::cout << '[';
-            // Iterar vector de doubles
-            std::string_view sep = "";
-            for (auto val : m_vector) {
-                std::cout << sep << val;
-                sep = ", ";
+            std::string_view sep = ""; // Variable separadora
+
+            std::cout << '['; // Corchete de inicio de vector
+            for (const auto& val : m_vector) {
+                std::cout << sep << val; // [val
+                sep = ", "; // [val, 
             }
-            std::cout << ']';
+            std::cout << ']'; // [val, ...]
         }
+        // Caso vector strings.
         else if constexpr (std::is_same_v<T, std::string>) {
-            std::cout << '[';
-            // Iterar vector de Strings
             std::string_view sep = "";
-            for (auto val : m_vector) {
+            
+            std::cout << '[';
+            for (const auto& val : m_vector) {
                 std::cout << sep << "\"" << val << "\"";
                 sep = ", ";
             }
             std::cout << ']';
         }
+        // Caso matriz de ints.
         else if constexpr (std::is_same_v<T, std::vector<int>>) {
-            std::cout << '[' << std::endl;
+            std::string_view sep = ""; // Separador de elementos de la matriz
+            
+            std::cout << '[' << std::endl; // Corchete de inicio de matriz
+            for (const auto& subVec : m_vector) {
+                std::cout << sep; // Separador subelemento de la matriz
 
-            // Iterar sobre las sublistas
-            std::string_view sep = "";
-            for (auto subVec : m_vector) {
-                std::cout << sep;
-                std::cout << "\t   [";
+                std::cout << "\t   ["; // Corchete inicio sublista
 
                 std::string_view sep2 = "";
-                for (double val : subVec) {
+                for (const auto& val : subVec) {
                     std::cout << sep2 << val;
                     sep2 = ", ";
                 }
+                std::cout << ']'; // Corchete fin sublista
 
-                std::cout << ']';
                 sep = ", \n";
             }
-            std::cout << std::endl << "\t  ]";
+            std::cout << std::endl << "\t  ]"; // Corchete final de matriz
         }
+        // Caso default, lanza un runtime error. Si se usase template specialization, no haria falta.
         else {
-            std::cout << "Default" << std::endl;
+            throw new std::runtime_error("Tipo no soportado en el Template.");
         }
     }
 

@@ -1,40 +1,24 @@
 #pragma once
 
-#include <vector>
+#include <map>
+#include <memory>
 #include <iostream>
 
 #include "ClaseVector.hpp"
+#include "BaseVector.hpp"
 
-class ClaseEtiquetadora
-{
+using TagVectorPair = std::pair<std::string, std::unique_ptr<BaseVector>>;
+
+class ClaseEtiquetadora{
 private:
-    ClaseVector<double> m_dobles;
-    ClaseVector<std::string> m_palabras;
-    ClaseVector<std::vector<int>> m_matriz;
+    std::vector<TagVectorPair> m_taggedVectors {};
 public:
-    ClaseEtiquetadora(ClaseVector<double>, ClaseVector<std::string>, ClaseVector<std::vector<int>>);
-    ~ClaseEtiquetadora() = default;
-
-    void mostrarJSON();
-
-};
-
-ClaseEtiquetadora::ClaseEtiquetadora(ClaseVector<double> t_dobles, ClaseVector<std::string> t_strings, ClaseVector<std::vector<int>> t_matriz) {
-    m_dobles = t_dobles;
-    m_palabras = t_strings;
-    m_matriz = t_matriz;
-}
-
-void ClaseEtiquetadora::mostrarJSON() {
-    std::cout << "{" << " \"" << "vec_doubles" << "\"" << " : ";
-    m_dobles.mostrarVector();
-    std::cout << ',' << std::endl;
+    // Toma una string y un BaseVector y los asocia en un std::pair.
+    void etiquetarVector(std::string t_tag, std::unique_ptr<BaseVector> t_vec);
     
-    std::cout << "  \"" << "palabras" << "\"" << " : ";
-    m_palabras.mostrarVector();
-    std::cout << ',' << std::endl;
+    // Imprime los pares asociados con el formato de un JSON( "tag" : [vec], )
+    void mostrarJSON() const;
 
-    std::cout << "  \"" << "listas" << "\"" << " : ";
-    m_matriz.mostrarVector();
-    std::cout << std::endl << '}';
-}
+    ClaseEtiquetadora() = default;
+    ~ClaseEtiquetadora() = default;
+};
