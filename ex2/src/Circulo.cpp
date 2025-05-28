@@ -1,10 +1,10 @@
 #include "Circulo.hpp"
 
-float Circulo::getRadio() const {
+double Circulo::getRadio() const {
     return m_radio;
 }
 
-void Circulo::setRadio(float t_radio) {
+void Circulo::setRadio(double t_radio) {
     m_radio = t_radio;
 }
 
@@ -16,5 +16,5 @@ void Circulo::setCentro(const Punto& t_centro) {
     m_centro = t_centro;
 }
 
-Circulo::Circulo(Punto t_centro, float t_radio)
+Circulo::Circulo(Punto t_centro, double t_radio)
     : m_centro(t_centro), m_radio(t_radio) {}

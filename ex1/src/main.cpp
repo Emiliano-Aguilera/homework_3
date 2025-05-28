@@ -3,6 +3,7 @@
 #include "SaveFlightData.hpp"
 
 int main() {
+    std::cout << "EJERCICIO 1" << std::endl << std::endl;
     const std::string FLIGHTDATA_PATH = "../../flightdata.bin";
 
     // Inicializar datos originales

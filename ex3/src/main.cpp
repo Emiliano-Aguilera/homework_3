@@ -11,6 +11,7 @@ using ClaseVectorPtr = std::unique_ptr<ClaseVector<T>>;
 
 
 int main() {
+    std::cout << "EJERCICIO 1" << std::endl << std::endl;
     ClaseVectorPtr<double> vectorDoubles = std::make_unique<ClaseVector<double>>();
     ClaseVectorPtr<std::string> vectorStrings = std::make_unique<ClaseVector<std::string>>();
     ClaseVectorPtr<std::vector<int>> matriz = std::make_unique<ClaseVector<std::vector<int>>>();

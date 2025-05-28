@@ -2,13 +2,13 @@
 
 class Punto {
 private:
-    float m_x, m_y;
+    double m_x, m_y;
 public:
-    float getX() const;
-    void setX(float t_x);
+    double getX() const;
+    void setX(double t_x);
 
-    float getY() const;
-    void setY(float t_y);
+    double getY() const;
+    void setY(double t_y);
 
-    Punto(float t_x={}, float t_y={});
+    Punto(double t_x={}, double t_y={});
 };

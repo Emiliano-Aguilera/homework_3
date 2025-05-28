@@ -15,28 +15,28 @@ class ProcesadorFigura {
 private:
     T m_figura;
 public:
-    float calcularArea();
+    double calcularArea();
     explicit ProcesadorFigura(T t_figura) {
         m_figura = t_figura;
     }
 };
 
 template <typename T>
-float ProcesadorFigura<T>::calcularArea() {
+double ProcesadorFigura<T>::calcularArea() {
     return 0.0f;
 }
 
 template <>
-float ProcesadorFigura<Elipse>::calcularArea() {
+double ProcesadorFigura<Elipse>::calcularArea() {
     return m_figura.getMayor() * m_figura.getMenor() * M_PI;
 }
 
 template <>
-float ProcesadorFigura<Circulo>::calcularArea() {
+double ProcesadorFigura<Circulo>::calcularArea() {
     return m_figura.getRadio() * m_figura.getRadio() * M_PI;
 }
 
 template <>
-float ProcesadorFigura<Rectangulo>::calcularArea() {
+double ProcesadorFigura<Rectangulo>::calcularArea() {
     return m_figura.getBase() * m_figura.getAltura();
 }

@@ -7,6 +7,7 @@
 #include <iostream>
 
 int main() {
+    std::cout << "EJERCICIO 1" << std::endl << std::endl;
     Punto centro{1 , 1};
     Circulo circ{centro, 6};
     Elipse elip{centro, 3, 6};

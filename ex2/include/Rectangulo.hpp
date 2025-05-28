@@ -5,16 +5,16 @@
 class Rectangulo {
 private:
     Punto m_esquina;
-    float m_base, m_altura;
+    double m_base, m_altura;
 public:
     const Punto& getEsquina() const;
     void setEsquina(const Punto& t_esquina);
 
-    float getBase() const;
-    void setBase(float t_base);
+    double getBase() const;
+    void setBase(double t_base);
 
-    float getAltura() const;
-    void setAltura(float t_altura);
+    double getAltura() const;
+    void setAltura(double t_altura);
 
-    Rectangulo(Punto t_esquina={}, float t_base={}, float t_altura={});
+    Rectangulo(Punto t_esquina={}, double t_base={}, double t_altura={});
 };
