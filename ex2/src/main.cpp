@@ -12,12 +12,10 @@ int main() {
     Elipse elip{centro, 3, 6};
     Rectangulo rect{centro, 4, 6};
 
-    // TODO check que esta sea la mejor forma
-
-    ProcesadorFigura procPunto {centro};
-    ProcesadorFigura procCirculo {circ};
-    ProcesadorFigura procElipse {elip};
-    ProcesadorFigura procRectangulo {rect};
+    ProcesadorFigura<Punto> procPunto{centro};
+    ProcesadorFigura<Circulo> procCirculo{circ};
+    ProcesadorFigura<Elipse> procElipse{elip};
+    ProcesadorFigura<Rectangulo> procRectangulo{rect};
 
     std::cout << "Area Punto: " << procPunto.calcularArea() << std::endl;
     std::cout << "Area Circulo: " << procCirculo.calcularArea() << std::endl;

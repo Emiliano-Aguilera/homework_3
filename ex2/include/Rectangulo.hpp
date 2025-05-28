@@ -7,15 +7,14 @@ private:
     Punto m_esquina;
     float m_base, m_altura;
 public:
-    Punto getEsquina();
-    void setEsquina(Punto t_esquina);
+    const Punto& getEsquina() const;
+    void setEsquina(const Punto& t_esquina);
 
-    float getBase();
+    float getBase() const;
     void setBase(float t_base);
 
-    float get_altura();
-    void set_altura(float t_altura);
+    float getAltura() const;
+    void setAltura(float t_altura);
 
-    Rectangulo(Punto t_esquina = 0, float t_base = 0, float t_altura = 0);
-    ~Rectangulo() = default;
+    Rectangulo(Punto t_esquina={}, float t_base={}, float t_altura={});
 };

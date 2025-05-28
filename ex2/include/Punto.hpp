@@ -4,12 +4,11 @@ class Punto {
 private:
     float m_x, m_y;
 public:
-    float getX();
+    float getX() const;
     void setX(float t_x);
 
-    float getY();
+    float getY() const;
     void setY(float t_y);
 
-    Punto(float t_x = 0.0, float t_y = 0.0);
-    ~Punto() = default;
+    Punto(float t_x={}, float t_y={});
 };

@@ -1,11 +1,14 @@
 #pragma once
+
 #include <type_traits>
-#include <cmath>
 
 #include "Punto.hpp"
 #include "Elipse.hpp"
 #include "Circulo.hpp"
 #include "Rectangulo.hpp"
+
+// Constante para PI.
+constexpr double M_PI = 3.14159265358979323846; 
 
 template <typename T>
 class ProcesadorFigura {
@@ -16,7 +19,6 @@ public:
     explicit ProcesadorFigura(T t_figura) {
         m_figura = t_figura;
     }
-    ~ProcesadorFigura() = default;
 };
 
 template <typename T>
@@ -36,5 +38,5 @@ float ProcesadorFigura<Circulo>::calcularArea() {
 
 template <>
 float ProcesadorFigura<Rectangulo>::calcularArea() {
-    return m_figura.getBase() * m_figura.get_altura();
+    return m_figura.getBase() * m_figura.getAltura();
 }

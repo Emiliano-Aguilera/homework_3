@@ -7,11 +7,11 @@ private:
     Punto m_centro;
     float m_radio;
 public:
-    float getRadio();
+    float getRadio() const;
     void setRadio(float t_radio);
 
-    Punto getCentro();
-    void setCentro(Punto t_centro);
-    Circulo(Punto t_centro = 0, float t_radio = 0);
-    ~Circulo() = default;
+    const Punto& getCentro() const;
+    void setCentro(const Punto& t_centro);
+    
+    Circulo(Punto t_centro=Punto{}, float t_radio={});
 };

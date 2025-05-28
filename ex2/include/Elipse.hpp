@@ -7,15 +7,14 @@ private:
     Punto m_centro;
     float m_mayor, m_menor;
 public:
-    float getMayor();
+    float getMayor() const;
     void setMayor(float t_mayor);
     
-    float getMenor();
+    float getMenor() const;
     void setMenor(float t_menor);
 
-    Punto getCentro();
-    void setCentro(Punto t_centro);
+    const Punto& getCentro() const;
+    void setCentro(const Punto& t_centro);
 
-    Elipse(Punto t_centro = 0, float t_mayor = 0, float t_menor = 0);
-    ~Elipse() = default;
+    Elipse(Punto t_centro={}, float t_mayor={}, float t_menor={});
 };

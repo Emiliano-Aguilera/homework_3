@@ -1,6 +1,6 @@
 #include "Punto.hpp"
 
-float Punto::getX() {
+float Punto::getX() const {
     return m_x;
 }
 
@@ -8,7 +8,7 @@ void Punto::setX(float t_x) {
     m_x = t_x;
 }
 
-float Punto::getY() {
+float Punto::getY() const {
     return m_y;
 }
 
