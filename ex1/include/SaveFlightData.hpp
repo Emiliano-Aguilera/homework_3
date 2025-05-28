@@ -7,13 +7,14 @@
 
 class SaveFlightData {
 public:
-    Posicion m_posicion;
-    Presion m_presion;
+    Posicion posicion;
+    Presion presion;
 public:
-    void imprimir() const;    
+    void imprimir() const;
+    //TODO deben coincidir los parametros con el diagrama?
     void serializar(std::ofstream& t_out) const;
     void deSerializar(std::ifstream& t_in);
     
-    SaveFlightData(const Posicion& t_posicion, const Presion& t_presion);
+    SaveFlightData(const Posicion& t_posicion, const Presion& t_presion); 
     ~SaveFlightData() = default;
 };

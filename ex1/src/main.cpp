@@ -3,40 +3,42 @@
 #include "SaveFlightData.hpp"
 
 int main() {
+    const std::string FLIGHTDATA_PATH = "../../flightdata.bin";
+
+    // Inicializar datos originales
     Posicion posicion(-34.6f, -58.4f, 950.0f, 5.3f);
     Presion presion(101.3f, 5.8f, 6.1f);
-
     SaveFlightData original(posicion, presion);
 
-    std::ofstream out("../../flightdata.bin", std::ios::binary);
-    if (out) {
-        original.serializar(out);
-        out.close();
-    } else {
-        std::cerr << "Error opening file for writing\n";
+    // Serializar a archivo binario
+    std::ofstream out(FLIGHTDATA_PATH, std::ios::binary);
+    if (!out) {
+        std::cerr << "Error abriendo el archivo para serializar.\n";
         return 1;
     }
+    original.serializar(out);
+    out.close();
 
-    // Objetos que almacenan los datos a deserializar
-    Posicion pos2(0, 0, 0, 0);
-    Presion pres2(0, 0, 0);
-    SaveFlightData loaded(pos2, pres2);
+    // Preparar objetos para deserializar
+    Posicion posicionDeserializada(0, 0, 0, 0);
+    Presion presionDeserializada(0, 0, 0);
+    SaveFlightData cargado(posicionDeserializada, presionDeserializada);
 
-    // Deserializar
-    std::ifstream in("../../flightdata.bin", std::ios::binary);
-    if (in) {
-        loaded.deSerializar(in);
-        in.close();
-    } else {
-        std::cerr << "Error opening file for reading\n";
+    // Deserializar desde archivo binario
+    std::ifstream in(FLIGHTDATA_PATH, std::ios::binary);
+    if (!in) {
+        std::cerr << "Error abriendo el archivo para deserializar.\n";
         return 1;
     }
+    cargado.deSerializar(in);
+    in.close();
 
-    // Imprimir valores de ambos, para ver que se serializa correctamente.
-    std::cout << "Original: " << std::endl;
+    // Imprimir resultados
+    std::cout << "Original:\n\n";
     original.imprimir();
-    std::cout << "Cargado: " << std::endl;
-    loaded.imprimir();
+    std::cout << "\n\n";
+    std::cout << "Cargado:\n\n";
+    cargado.imprimir();
 
     return 0;
 }
