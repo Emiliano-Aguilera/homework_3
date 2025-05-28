@@ -4,7 +4,12 @@
 
 int main() {
     std::cout << "EJERCICIO 1" << std::endl << std::endl;
-    const std::string FLIGHTDATA_PATH = "../../flightdata.bin";
+    /*
+    * Este path asume que:
+    * se usa CMAKE y el ejecutable esta en build/bin
+    * hay una carpeta a la misma altura que build llamada ex1
+    */
+    const std::string FLIGHTDATA_PATH = "../../ex1/flightdata.bin";
 
     // Inicializar datos originales
     Posicion posicion(-34.6f, -58.4f, 950.0f, 5.3f);
