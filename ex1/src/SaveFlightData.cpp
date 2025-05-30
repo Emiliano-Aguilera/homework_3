@@ -25,7 +25,7 @@ void SaveFlightData::deSerializar(std::ifstream& t_in) {
 
 SaveFlightData::SaveFlightData(const Posicion& t_posicion, const Presion&  t_presion) 
     :
-    presion(t_presion.presionDinamica, t_presion.presionEstatica, t_presion.getTiempo()),
+    presion(t_presion.presionEstatica, t_presion.presionDinamica, t_presion.getTiempo()),
     posicion(t_posicion.latitud, t_posicion.longitud, t_posicion.altitud, t_posicion.getTiempo())
 {}
 /*

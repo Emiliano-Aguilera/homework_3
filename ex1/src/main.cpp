@@ -18,6 +18,7 @@ int main() {
 
     // Serializar a archivo binario
     std::ofstream out(FLIGHTDATA_PATH, std::ios::binary);
+    
     if (!out) {
         std::cerr << "Error abriendo el archivo para serializar.\n";
         return 1;

@@ -1,6 +1,6 @@
 # Homework 3 Paradigmas de Programacion
 ## Compilación:
-El repositorio contiene CMakeLists.txt que genera 3 rutinas de compilacion, una por ejercicio, usando todos los warnings.
+El repositorio contiene el archivo `CMakeLists.txt` que genera 3 rutinas de compilacion, una por ejercicio, usando todos los warnings.
 
  En `c_cpp_properties.json` se encuentra la configuración de la [extension C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) que está configurada para usar la misma configuración que CMake, por lo que ambos son consistentes.
 

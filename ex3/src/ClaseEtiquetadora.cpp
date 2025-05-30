@@ -13,7 +13,7 @@ void ClaseEtiquetadora::mostrarJSON() const {
         
         std::cout << "\"" << i_tag << "\""; // "tag"
         std::cout << " : "; // "tag" : 
-        i_vec->mostrarVector(); // "tag" : [...]'
+        std::cout << i_vec->mostrarVector(); // "tag" : [...]'
 
         sep = ", \n  "; // "tag" : [...],
     }

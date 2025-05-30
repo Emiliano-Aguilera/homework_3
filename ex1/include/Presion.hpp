@@ -9,8 +9,6 @@ public:
 public:
     void imprimir() const override;
 
-    // TODO deben coincidir los parametros con el diagrama?
-
     void serializar(std::ofstream& t_out) const override;
     void deSerializar(std::ifstream& t_in) override;
     

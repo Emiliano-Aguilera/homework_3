@@ -2,7 +2,7 @@
 
 class BaseVector {
 public:
-    virtual void mostrarVector() const = 0;
+    virtual std::string mostrarVector() const = 0;
     
     BaseVector() = default;
     virtual ~BaseVector() = default;

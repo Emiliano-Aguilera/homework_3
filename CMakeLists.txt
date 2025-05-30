@@ -45,7 +45,10 @@ function(add_ejercicio nombre carpeta)
     set_target_properties(${nombre} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 endfunction()
 
-# Lista de ejercicios
-add_ejercicio(ex1 ex1)
-add_ejercicio(ex2 ex2)
-add_ejercicio(ex3 ex3)
+# Buscar carpetas ex* que tengan src/main.cpp y agregar el ejercicio automáticamente
+file(GLOB EX_DIRS RELATIVE ${CMAKE_SOURCE_DIR} ex*)
+foreach(EX_DIR ${EX_DIRS})
+    if(EXISTS "${CMAKE_SOURCE_DIR}/${EX_DIR}/src/main.cpp")
+        add_ejercicio(${EX_DIR} ${EX_DIR})
+    endif()
+endforeach()

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <stdexcept>
+#include <sstream>
 
 template <typename T>
 /*
@@ -21,56 +22,60 @@ public:
         m_vector.push_back(t_valor);
     }
 
-    void mostrarVector() const override {
+    std::string mostrarVector() const override {
+        std::ostringstream output{}; // stream a llenar con el vector formateado
+        
         // Uso sep para poner una "," al final de todos los elementos excepto el ultimo. Evita checkeos y hace mas legible la iteracion.
-
+        
         // Caso vector de double.
         if constexpr (std::is_same_v<T, double>) {
             std::string_view sep = ""; // Variable separadora
 
-            std::cout << '['; // Corchete de inicio de vector
+            output << '['; // Corchete de inicio de vector
             for (const auto& val : m_vector) {
-                std::cout << sep << val; // [val
+                output << sep << val; // [val
                 sep = ", "; // [val, 
             }
-            std::cout << ']'; // [val, ...]
+            output << ']'; // [val, ...]
         }
         // Caso vector strings.
         else if constexpr (std::is_same_v<T, std::string>) {
             std::string_view sep = "";
             
-            std::cout << '[';
+            output << '[';
             for (const auto& val : m_vector) {
-                std::cout << sep << "\"" << val << "\"";
+                output << sep << "\"" << val << "\"";
                 sep = ", ";
             }
-            std::cout << ']';
+            output << ']';
         }
         // Caso matriz de ints.
         else if constexpr (std::is_same_v<T, std::vector<int>>) {
             std::string_view sep = ""; // Separador de elementos de la matriz
             
-            std::cout << '[' << std::endl; // Corchete de inicio de matriz
+            output << '[' << std::endl; // Corchete de inicio de matriz
             for (const auto& subVec : m_vector) {
-                std::cout << sep; // Separador subelemento de la matriz
+                output << sep; // Separador subelemento de la matriz
 
-                std::cout << "\t   ["; // Corchete inicio sublista
+                output << "\t   ["; // Corchete inicio sublista
 
                 std::string_view sep2 = "";
                 for (const auto& val : subVec) {
-                    std::cout << sep2 << val;
+                    output << sep2 << val;
                     sep2 = ", ";
                 }
-                std::cout << ']'; // Corchete fin sublista
+                output << ']'; // Corchete fin sublista
 
                 sep = ", \n";
             }
-            std::cout << std::endl << "\t  ]"; // Corchete final de matriz
+            output << std::endl << "\t  ]"; // Corchete final de matriz
         }
         // Caso default, lanza un runtime error. Si se usase template specialization, no haria falta.
         else {
             throw new std::runtime_error("Tipo no soportado en el Template.");
         }
+
+        return output.str();
     }
 
     ClaseVector() = default;
