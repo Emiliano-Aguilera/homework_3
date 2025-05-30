@@ -22,7 +22,7 @@ public:
         m_vector.push_back(t_valor);
     }
 
-    std::string mostrarVector() const final override {
+    std::string mostrarVector() const override final {
         std::ostringstream output{}; // stream a llenar con el vector formateado
         
         // Uso sep para poner una "," al final de todos los elementos excepto el ultimo. Evita checkeos y hace mas legible la iteracion.
