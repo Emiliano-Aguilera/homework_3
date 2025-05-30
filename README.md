@@ -2,7 +2,7 @@
 ## Compilación:
 El repositorio contiene el archivo `CMakeLists.txt` que genera 3 rutinas de compilacion, una por ejercicio, usando todos los warnings.
 
- En `c_cpp_properties.json` se encuentra la configuración de la [extension C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) que está configurada para usar la misma configuración que CMake, por lo que ambos son consistentes.
+ En `c_cpp_properties.json` se encuentra la configuración de la [extension C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) que está configurada para usar la misma configuración que CMake, no para ejecutar las rutinas, sino que tiene el mismo includepath y los mismos flags que los que usa CMake para compilar, por lo que ambos deberian ser consistentes.
 
 Para poder compilar usando CMake, hay que tener la extensión ["CMakeTools"](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools), que permite compilar y correr el ejecutable usando el botón que se encuentra en la esquina inferior izquierda. El de la esquina superior derecha corresponde al de la extensión C/C++ y no usa la compilación de CMake, por lo que no sirve. La configuracion de las rutinas de compilacion se encuentra en `CMakeLists.txt`
 
