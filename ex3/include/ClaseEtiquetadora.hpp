@@ -9,7 +9,7 @@
 
 using TagVectorPair = std::pair<std::string, std::unique_ptr<BaseVector>>;
 
-class ClaseEtiquetadora{
+class ClaseEtiquetadora {
 private:
     std::vector<TagVectorPair> m_taggedVectors {};
 public:

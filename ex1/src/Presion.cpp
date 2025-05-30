@@ -24,9 +24,4 @@ Presion::Presion(float t_presionEstatica, float t_presionDinamica, float t_tiemp
     presionDinamica = t_presionDinamica;
     m_tiempoMedicion = std::make_unique<float>(t_tiempo);
 }
-
-Presion::Presion(const Presion& t_presion) {
-    presionEstatica = t_presion.presionEstatica;
-    presionDinamica = t_presion.presionDinamica;
-    m_tiempoMedicion = std::make_unique<float>(t_presion.getTiempo());
-}
+ 

@@ -27,10 +27,3 @@ Posicion::Posicion(float t_latitud, float t_longitud, float t_altitud, float t_t
     altitud = t_altitud;
     m_tiempoMedicion = std::make_unique<float>(t_tiempo);
 }
-
-Posicion::Posicion(const Posicion& t_posicion) {
-    latitud = t_posicion.latitud;
-    longitud = t_posicion.longitud;
-    altitud = t_posicion.altitud;
-    m_tiempoMedicion = std::make_unique<float>(t_posicion.getTiempo());
-}
