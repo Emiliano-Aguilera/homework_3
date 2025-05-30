@@ -16,5 +16,5 @@ public:
     const Punto& getCentro() const;
     void setCentro(const Punto& t_centro);
 
-    Elipse(Punto t_centro={}, double t_mayor={}, double t_menor={});
+    Elipse(Punto t_centro={}, double t_mayor=0, double t_menor=0);
 };

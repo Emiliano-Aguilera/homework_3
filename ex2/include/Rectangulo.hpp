@@ -16,5 +16,5 @@ public:
     double getAltura() const;
     void setAltura(double t_altura);
 
-    Rectangulo(Punto t_esquina={}, double t_base={}, double t_altura={});
+    Rectangulo(Punto t_esquina={}, double t_base=0, double t_altura=0);
 };

@@ -10,20 +10,18 @@ void Posicion::imprimir() const {
 void Posicion::serializar(std::ofstream& t_out) const {
     MedicionBase::serializar(t_out);
     t_out.write(reinterpret_cast<const char*>(&latitud), sizeof(float));
-    t_out.write(reinterpret_cast<const char*>(&altitud), sizeof(float));
     t_out.write(reinterpret_cast<const char*>(&longitud), sizeof(float));
+    t_out.write(reinterpret_cast<const char*>(&altitud), sizeof(float));
 }
 
 void Posicion::deSerializar(std::ifstream& t_in) {
     MedicionBase::deSerializar(t_in);
     t_in.read(reinterpret_cast<char*>(&latitud), sizeof(float));
-    t_in.read(reinterpret_cast<char*>(&altitud), sizeof(float));
     t_in.read(reinterpret_cast<char*>(&longitud), sizeof(float));
+    t_in.read(reinterpret_cast<char*>(&altitud), sizeof(float));
 }
 
-Posicion::Posicion(float t_latitud, float t_longitud, float t_altitud, float t_tiempo) {
-    latitud = t_latitud;
-    longitud = t_longitud;
-    altitud = t_altitud;
+Posicion::Posicion(float t_latitud, float t_longitud, float t_altitud, float t_tiempo)
+    : latitud(t_latitud), longitud(t_longitud), altitud(t_altitud) {
     m_tiempoMedicion = std::make_unique<float>(t_tiempo);
 }

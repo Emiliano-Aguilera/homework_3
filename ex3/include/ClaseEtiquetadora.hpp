@@ -1,6 +1,5 @@
 #pragma once
 
-#include <map>
 #include <memory>
 #include <iostream>
 
@@ -11,7 +10,7 @@ using TagVectorPair = std::pair<std::string, std::unique_ptr<BaseVector>>;
 
 class ClaseEtiquetadora {
 private:
-    std::vector<TagVectorPair> m_taggedVectors {};
+    std::vector<TagVectorPair> m_taggedVectors{};
 public:
     // Toma una string y un BaseVector y los asocia en un std::pair.
     void etiquetarVector(std::string t_tag, std::unique_ptr<BaseVector> t_vec);

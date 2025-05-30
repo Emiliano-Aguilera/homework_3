@@ -10,14 +10,14 @@ void SaveFlightData::imprimir() const {
 }
 
 void SaveFlightData::serializar(std::ofstream& t_out) const {
-    // Serializacion de Presion
-    presion.serializar(t_out);
     // Serializacion de posicion
     posicion.serializar(t_out);
+    // Serializacion de Presion
+    presion.serializar(t_out);
 }
 
 void SaveFlightData::deSerializar(std::ifstream& t_in) {
-    // Serializacion de Posicion
+    // Deserializacion de Posicion
     posicion.deSerializar(t_in);
     // Deserializacion de Presion
     presion.deSerializar(t_in);

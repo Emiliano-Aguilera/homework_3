@@ -13,7 +13,7 @@ template <typename T>
 * No se permite eliminar valores del vector porque se asume que esta clase deberia ser usada para deserializar un JSON, 
 * no para interactuar con el usuario/programador de otra forma. Para uso mas general, usar std::vector.
 */
-class ClaseVector : public BaseVector{
+class ClaseVector : public BaseVector {
 private:
     std::vector<T> m_vector;
 public:
@@ -22,7 +22,7 @@ public:
         m_vector.push_back(t_valor);
     }
 
-    std::string mostrarVector() const override {
+    std::string mostrarVector() const final override {
         std::ostringstream output{}; // stream a llenar con el vector formateado
         
         // Uso sep para poner una "," al final de todos los elementos excepto el ultimo. Evita checkeos y hace mas legible la iteracion.
@@ -53,7 +53,7 @@ public:
         else if constexpr (std::is_same_v<T, std::vector<int>>) {
             std::string_view sep = ""; // Separador de elementos de la matriz
             
-            output << '[' << std::endl; // Corchete de inicio de matriz
+            output << '[' << "\n"; // Corchete de inicio de matriz
             for (const auto& subVec : m_vector) {
                 output << sep; // Separador subelemento de la matriz
 
@@ -68,11 +68,11 @@ public:
 
                 sep = ", \n";
             }
-            output << std::endl << "\t  ]"; // Corchete final de matriz
+            output << "\n" << "\t  ]"; // Corchete final de matriz
         }
         // Caso default, lanza un runtime error. Si se usase template specialization, no haria falta.
         else {
-            throw new std::runtime_error("Tipo no soportado en el Template.");
+            throw std::runtime_error("Tipo no soportado en el Template.");
         }
 
         return output.str();

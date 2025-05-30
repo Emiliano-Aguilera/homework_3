@@ -13,5 +13,5 @@ public:
     const Punto& getCentro() const;
     void setCentro(const Punto& t_centro);
     
-    Circulo(Punto t_centro=Punto{}, double t_radio={});
+    Circulo(Punto t_centro=Punto{}, double t_radio=0);
 };
